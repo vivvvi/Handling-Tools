@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+
 <html>
 
 
 <head>
+	<meta charset="UTF-8">
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
@@ -87,6 +89,9 @@
 			position: absolute;
 			margin-left: 1rem;
 		}*/
+.editable-area {
+    background-color: rgba(0, 128, 0, 0.3) !important; 
+}
 
 </style>
 
@@ -1144,11 +1149,13 @@
 			<div class="pb-5  tab-pane fade" id="raw" role="tabpanel" aria-labelledby="raw-tab">
                 <div class="alert alert-warning mt-3" role="alert">Don't edit the values in here. This area serves only
                     as a preview of the file.</div>
+					<!-- 🖉 Ace Editor (User-facing editor) -->
+				    <div id="rawEditor" style="min-height: 1000px; width: 100%;" class="mt-5"></div>
+
                 <textarea type="textarea" value="" id="handlingFileDisplay" style="min-height:1000px;"
                     class="mt-5 w-100 bg-light text-success" disabled></textarea>
 
             </div>
-
 
 
 
@@ -1431,5 +1438,12 @@
 
 <script src="handling.js"></script>
 <script src="flags.js"></script>
+
+<!-- Include Ace Editor Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ace.js"></script>
+<script src="ace_xml.js"></script>
+
+
+
 
 </html>
