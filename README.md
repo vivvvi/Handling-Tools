@@ -73,7 +73,7 @@ This branch introduces a **complete overhaul of the Handling Flags system**. It 
 ```
 
 # [TODO / Future Enhancements]
-- 🐛 Flags interface is not updating the global handlingArr or the raw XML. 
+- 🐛 not all calculations may still be correct trying to remove miles per hour from calculations. 
 - 📋 Complete sub-array support — Handle all sub-handling elements and nested items.
 - ⚖️ Remove 'miles' from internal logic — Store data in KM/H and only convert to MPH when required.
 - 📊 Mass Comparer Improvements — Full support for flattening and dynamic column selection.
