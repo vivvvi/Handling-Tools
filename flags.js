@@ -407,6 +407,13 @@ function updHexSpan(flagType, hexString){
 		console.log(`${messg}\n\n`, 'color:yellow;background:black;font-weigh:bold;', '', 'color:yellow;background:blue;font-weigh:bold;');
 
 		$(`#${flagIndex}`).text(`${hexString}`);
+
+		//handlingArray.handling[flagType] = hexString;
+
+		// function replaceHandlingAttr(tagName, attrName, newValue) {
+		// replaceHandlingAttr(fDownforceModifier, value, 62.45){};
+		// tagName:fDownforceModifier, attrName:value, newValue:62.45
+		replaceHandlingAttr(flagIndex, 'string', hexString);
 }
 
 function setFlagState(flagType, hexString) {

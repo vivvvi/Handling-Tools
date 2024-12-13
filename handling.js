@@ -355,30 +355,60 @@ input.addEventListener("change", function () {
 
 
 
-	// Replace the values in the rawInput textarea (the XML file in the textbox).
-	// This textarea holds the data we will provide when saving the file.
-	function replaceHandlingAttr(tagName, attrName, newValue) {
-		var reg;
-		
-		// If we're working with x, y, z attributes, they should be updated within the tag.
-		if (['x', 'y', 'z'].includes(attrName)) {
-			// Regex to match tags like: <vecCentreOfMassOffset x="0.000000" y="0.000000" z="0.000000" />
-			reg = new RegExp(`(<${tagName}[^>]*\\s${attrName}=")([a-zA-Z0-9.-]+)(")`, 'i');
-		} 
-		else if (attrName === 'value') {
-			// Regex for attributes like: <fMass value="1500.000000" />
-			reg = new RegExp(`(<${tagName}[^>]*\\s${attrName}=")([a-zA-Z0-9.-]+)(")`, 'i');
-		} 
-		else {
-			console.error(`Unsupported attribute name: ${attrName}`);
-			return;
-		}
+// Replace the values in the rawInput textarea (the XML file in the textbox).
+// This textarea holds the data we will provide when saving the file.
+function replaceHandlingAttr(tagName, attrName, newValue) {
 
-		// Replace the matched value with the new value
-		rawInput.value = rawInput.value.replace(reg, `$1${newValue}$3`);
+    if (!rawInput || !rawInput.value) {
+        console.error('rawInput is not defined or empty.');
+        return;
+    }
 
-		// console.log(`%cUpdated ${tagName} [${attrName}] to ${newValue}`, 'color: green; font-weight: bold;');
-	}
+    var reg;
+
+    // If we're working with x, y, z attributes, they should be updated within the tag.
+    if (['x', 'y', 'z'].includes(attrName)) {
+        // Regex to match tags like: <vecCentreOfMassOffset x="0.000000" y="0.000000" z="0.000000" />
+        reg = new RegExp(`(<${tagName}[^>]*\\s${attrName}=")([a-zA-Z0-9.-]+)(")`, 'i');
+    } 
+    else if (attrName === 'value') {
+        // Regex for attributes like: <fMass value="1500.000000" />
+        reg = new RegExp(`(<${tagName}[^>]*\\s${attrName}=")([a-zA-Z0-9.-]+)(")`, 'i');
+    } 
+    else if (attrName === 'string') {
+        // New improved regex to match the value inside a tag like <modelFlags>value</modelFlags>
+        reg = new RegExp(`(<${tagName}\\b[^>]*>)([\\s\\S]*?)(</${tagName}>)`, 'i');
+    } 
+    else {
+        console.error(`Unsupported attribute name: ${attrName}`);
+        return;
+    }
+
+    const match = rawInput.value.match(reg);
+    if (!match) {
+        console.warn(`No match found for tag: <${tagName}> with attribute: [${attrName}]`);
+        console.log('--- Current rawInput value ---');
+        console.log(rawInput.value);
+        console.log('--- Regex used ---');
+        console.log(reg);
+        return;
+    }
+
+    console.log(`%c[BEFORE] %c${match[0]}`, 'color: orange; font-weight: bold;', '');
+
+    // Replace the matched value with the new value
+    const result = rawInput.value.replace(reg, `$1${newValue}$3`);
+    
+    // Check if the replacement was successful
+    if (result === rawInput.value) {
+        console.warn(`No match found for tag: <${tagName}> with attribute: [${attrName}]`);
+    } else {
+        //console.log('%c[AFTER]', 'color: green; font-weight: bold;', result);
+        console.log(`%cUpdated <${tagName}> [${attrName}] to ${newValue}`, 'color: green; font-weight: bold;');
+        rawInput.value = result;
+    }
+}
+
 
 
 
