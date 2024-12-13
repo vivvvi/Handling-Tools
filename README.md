@@ -24,7 +24,7 @@ This branch introduces a **complete overhaul of the Handling Flags system**. It 
 - 🆕 **flags.js** — Core logic for dynamic flag handling, input validation, and state updates.
 - 🆕 **handling.js** — Handles XML parsing, raw input updates, and integration with the UI.
 - 🆕 **2 JSON Files** — Metadata files for GTAV flags from Plebs and ikt.
-- 📁 **File Separation** — Extracted CSS and JS logic from `flags.html` and `handling.html` into standalone modules.
+- 📁 **File Separation** — Extracted and JS logic from `flags.html` and `handling.html` into standalone modules.
 
 ### Feature Enhancements
 - 🖱️ **Flag System Overhaul** — Unified flag handling logic between `handling.html` and `flags.html`.
