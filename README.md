@@ -19,7 +19,7 @@ This branch introduces a **complete overhaul of the Handling Flags system**. It 
 
 ---
 
-## What's New
+## [Whats New] What's New
 
 ### New Files & Structure
 - 🆕 **flags.js** — Core logic for dynamic flag handling, input validation, and state updates.
@@ -72,7 +72,7 @@ This branch introduces a **complete overhaul of the Handling Flags system**. It 
   </SubHandlingData>
 ```
 
-TODO / Future Enhancements
+# TODO / Future Enhancements
 - 📋 Complete sub-array support — Handle all sub-handling elements and nested items.
 - ⚖️ Remove 'miles' from internal logic — Store data in KM/H and only convert to MPH when required.
 - 📊 Mass Comparer Improvements — Full support for flattening and dynamic column selection.
