@@ -19,7 +19,7 @@ This branch introduces a **complete overhaul of the Handling Flags system**. It 
 
 ---
 
-## [Whats New] What's New
+## [Whats New]
 
 ### New Files & Structure
 - 🆕 **flags.js** — Core logic for dynamic flag handling, input validation, and state updates.
@@ -27,7 +27,7 @@ This branch introduces a **complete overhaul of the Handling Flags system**. It 
 - 🆕 **2 JSON Files** — Metadata files for GTAV flags from Plebs and ikt.
 - 📁 **File Separation** — Extracted and JS logic from `flags.html` and `handling.html` into standalone modules.
 
-### Feature Enhancements
+### [Feature Enhancements]
 - 🖱️ **Flag System Overhaul** — Unified flag handling logic between `handling.html` and `flags.html`.
 - ✍️ **Editable XML UI** — Users can directly edit raw XML values for:
   - `strModelFlags`
@@ -39,7 +39,7 @@ This branch introduces a **complete overhaul of the Handling Flags system**. It 
 - 📊 **Mass Comparer Overhaul** — Streamlined for flattened views and dynamic column selection.
 - 📁 **File Upload Enhancements** — Uploaded file names are now stored and referenced for mass composer and comparison logic.
 
-### User Interface
+### [User Interface]
 - 🖥️ **Interactive Flags UI** — Users can toggle, calculate, and edit flags with ease.
 - 🔥 **Live XML Parsing** — View and edit key XML nodes and sub-array data.
 - 🖼️ **Dynamic Tab Support** — Handling and Flags tabs now share the same modular logic.
@@ -47,7 +47,7 @@ This branch introduces a **complete overhaul of the Handling Flags system**. It 
 
 ---
 
-## Key Changes
+## [Key Changes]
 
 | **File**         | **Type**    | **Description**                                                                 |
 |-------------------|-------------|---------------------------------------------------------------------------------|
@@ -60,7 +60,7 @@ This branch introduces a **complete overhaul of the Handling Flags system**. It 
 
 ---
 
-## Bugs / Issues Addressed
+## [Bugs / Issues Addressed]
 - 🚫 **Input Restrictions** — Hex input validation logic improved. Supports copy-paste while maintaining constraints.
 - 🐛 **UI Consistency** — Refactored logic to support tabs in `flags.html` and `handling.html` using shared components.
 - 🔥 **Sub-Array Support** — Improved support for nested items like:
@@ -72,13 +72,13 @@ This branch introduces a **complete overhaul of the Handling Flags system**. It 
   </SubHandlingData>
 ```
 
-# TODO / Future Enhancements
+# [TODO / Future Enhancements]
 - 📋 Complete sub-array support — Handle all sub-handling elements and nested items.
 - ⚖️ Remove 'miles' from internal logic — Store data in KM/H and only convert to MPH when required.
 - 📊 Mass Comparer Improvements — Full support for flattening and dynamic column selection.
 - 🚦 Testing & QA — Full review of XML parsing logic, flag toggling, and mass comparer values.
 
-How to Test
+# [How to Test]
 Pull the branch and checkout the new files:
 ```bash
 git checkout feature/handling-flags-overhaul
@@ -92,7 +92,7 @@ Test the following:
 - Mass Comparer — Test flattened structure, dynamic columns, and file comparisons.
 - Sub-Array Support — Verify vecCentreOfMassOffset and vecInertiaMultiplier support.
 
-Notes for Reviewers
+# [Notes for Reviewers]
 This PR introduces significant changes to the structure and logic. Please review the changes to:
 - flags.js, handling.js, and the mass comparer logic.
 - Input Validation — Ensure user input validation logic works properly.
